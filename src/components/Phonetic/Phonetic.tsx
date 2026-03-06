@@ -1,4 +1,10 @@
-export default function Phonetic({data}: {data: WordData}) {
+import {useWordStore} from '../../stores/wordStore';
+
+export default function Phonetic() {
+	const {data} = useWordStore();
+
+	if (!data) return null;
+
 	return (
 		<header>
 			<div>

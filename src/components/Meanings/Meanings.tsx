@@ -1,5 +1,11 @@
-export default function Meaning({meaning}: {meaning: WordData['meanings'][number]}) {
-	return (
+import {useWordStore} from '../../stores/wordStore';
+
+export default function Meanings() {
+	const {data} = useWordStore();
+
+	if (!data) return null;
+
+	return data.meanings.map((meaning) => (
 		<section key={meaning.partOfSpeech}>
 			<h2>{meaning.partOfSpeech}</h2>
 			<h3>Meaning</h3>
@@ -20,5 +26,5 @@ export default function Meaning({meaning}: {meaning: WordData['meanings'][number
 				</p>
 			)}
 		</section>
-	);
+	));
 }
