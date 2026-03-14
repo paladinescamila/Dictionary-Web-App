@@ -1,0 +1,58 @@
+@import '../../styles';
+
+.phonetic {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+	column-gap: 8px;
+	margin-bottom: 40px;
+
+	div {
+		display: flex;
+		flex-direction: column;
+		row-gap: 8px;
+
+		h1 {
+			@extend .text-preset-1;
+			@include color-transition();
+
+			@include themed() {
+				color: t(text-color);
+			}
+		}
+
+		p {
+			color: $purple-500;
+			@extend .text-preset-2-regular;
+		}
+	}
+
+	.play {
+		width: 75px;
+		height: 75px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		background-color: rgba($purple-500, 0.25);
+		border-radius: 50%;
+		@include color-transition();
+
+		&:hover {
+			background-color: $purple-500;
+
+			div {
+				background-color: $neutral-0;
+			}
+		}
+
+		div {
+			width: 21px;
+			height: 21px;
+			background-color: $purple-500;
+			clip-path: polygon(0% 0%, 100% 50%, 0% 100%);
+			margin-left: 4px;
+			@include color-transition();
+		}
+	}
+}

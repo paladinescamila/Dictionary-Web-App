@@ -9,9 +9,18 @@ interface UIStore {
 
 const useStore = create<UIStore>((set) => ({
 	fontFamily: 'sans',
-	setFontFamily: (fontFamily: FontFamily) => set({fontFamily}),
+	setFontFamily: (fontFamily: FontFamily) => {
+		set({fontFamily});
+		document.body.classList.remove('font-sans', 'font-serif', 'font-mono');
+		document.body.classList.add(`font-${fontFamily}`);
+	},
 	theme: 'light',
-	setTheme: (theme: Theme) => set({theme}),
+	setTheme: (theme: Theme) => {
+		set({theme});
+		document.body.classList.remove('theme--light');
+		document.body.classList.remove('theme--dark');
+		document.body.classList.add(`theme--${theme}`);
+	},
 }));
 
 export const useUIStore = () => useStore((state) => state);

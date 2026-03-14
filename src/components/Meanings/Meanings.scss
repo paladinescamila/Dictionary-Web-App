@@ -1,0 +1,106 @@
+@import '../../styles';
+
+.meanings {
+	display: flex;
+	flex-direction: column;
+	row-gap: 40px;
+	margin-bottom: 48px;
+
+	.meaning {
+		display: flex;
+		flex-direction: column;
+		row-gap: 40px;
+
+		&__part-of-speech {
+			display: flex;
+			flex-direction: row;
+			column-gap: 20px;
+			align-items: center;
+
+			span {
+				@extend .text-preset-2-bold-italic;
+				@include color-transition();
+
+				@include themed() {
+					color: t(text-color);
+				}
+			}
+
+			div {
+				flex: 1;
+				height: 1px;
+				@include color-transition();
+
+				@include themed() {
+					background-color: t(line-color);
+				}
+			}
+		}
+
+		&__content {
+			display: flex;
+			flex-direction: column;
+			row-gap: 24px;
+		}
+
+		&__title {
+			color: $neutral-500;
+			@extend .text-preset-3-regular;
+		}
+
+		&__list {
+			display: flex;
+			flex-direction: column;
+			row-gap: 12px;
+
+			li {
+				@extend .text-preset-4-regular;
+				padding-left: 48px;
+				position: relative;
+				@include color-transition();
+				display: flex;
+				flex-direction: column;
+				row-gap: 12px;
+
+				@include themed() {
+					color: t(text-color);
+				}
+
+				&:before {
+					content: '';
+					position: absolute;
+					top: 8px;
+					left: 22px;
+					width: 5px;
+					height: 5px;
+					background-color: $purple-600;
+					border-radius: 50%;
+				}
+			}
+		}
+
+		&__sample {
+			color: $neutral-500;
+			@extend .text-preset-4-regular;
+		}
+
+		&__synonyms {
+			color: $neutral-500;
+			@extend .text-preset-3-regular;
+			padding-top: 24px;
+			display: flex;
+			flex-direction: row;
+			column-gap: 24px;
+
+			a {
+				color: $purple-500;
+				@extend .text-preset-3-bold;
+				text-decoration: none;
+
+				&:hover {
+					text-decoration: underline;
+				}
+			}
+		}
+	}
+}

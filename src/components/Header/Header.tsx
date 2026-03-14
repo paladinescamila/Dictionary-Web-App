@@ -1,17 +1,54 @@
+import {useState} from 'react';
+import LogoIcon from '../../assets/logo.svg';
+import {useUIStore} from '../../stores/uiStore';
+import {FONTS, FONTS_NAMES} from '../../constants/Fonts';
+import MoonIcon from '../../assets/MoonIcon';
+import ArrowDownIcon from '../../assets/icon-arrow-down.svg';
+import './Header.scss';
+
 export default function Header() {
+	const {fontFamily, setFontFamily, theme, setTheme} = useUIStore();
+
+	const [fontSelectorIsVisible, setFontSelectorIsVisible] = useState<boolean>(false);
+
 	return (
-		<header>
+		<header className='header'>
 			<nav>
-				<img src='logo.svg' alt='Logo Diccionario' />
-				<div>
-					<label htmlFor='font-family'>Sans Serif</label>
-					<select id='font-family'>
-						<option value='sans-serif'>Sans Serif</option>
-						<option value='serif'>Serif</option>
-						<option value='mono'>Mono</option>
-					</select>
-					<input type='checkbox' id='dark-mode-toggle' />
-					<label htmlFor='dark-mode-toggle'>Modo Oscuro</label>
+				<img src={LogoIcon} alt='Logo Diccionario' />
+				<div className='settings'>
+					<div className='font-family'>
+						<div
+							className='font-family-label'
+							onClick={() => setFontSelectorIsVisible((prev) => !prev)}>
+							<p>{FONTS_NAMES[fontFamily]}</p>
+							<img src={ArrowDownIcon} alt='Arrow Down Icon' />
+						</div>
+						{fontSelectorIsVisible ? (
+							<div className='font-family-options'>
+								{FONTS.map((font) => (
+									<div
+										key={font}
+										className={`font-family-option--${font}`}
+										onClick={() => setFontFamily(font)}>
+										{FONTS_NAMES[font]}
+									</div>
+								))}
+							</div>
+						) : null}
+					</div>
+					<div className='divider'></div>
+					<input
+						type='checkbox'
+						id='dark-mode-toggle'
+						checked={theme === 'dark'}
+						onChange={(e) => setTheme(e.target.checked ? 'dark' : 'light')}
+					/>
+					<label htmlFor='dark-mode-toggle' className='dark-mode-toggle'>
+						<div className={`toggle-switch--${theme}`}>
+							<div className='toggle-knob'></div>
+						</div>
+						<MoonIcon color={theme === 'dark' ? '#a445ed' : '#757575'} />
+					</label>
 				</div>
 			</nav>
 		</header>

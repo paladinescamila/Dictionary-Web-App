@@ -1,0 +1,29 @@
+@import '../../styles';
+
+footer {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	padding-top: 21px;
+	padding-bottom: 58px;
+	@extend .text-preset-7-regular;
+
+	@include themed() {
+		border-top: 1px solid t(line-color);
+	}
+
+	p {
+		color: $neutral-500;
+		text-decoration: underline;
+	}
+
+	a {
+		text-decoration: underline;
+		margin: 0 10px 0 20px;
+		@include color-transition();
+
+		@include themed() {
+			color: t(text-color);
+		}
+	}
+}

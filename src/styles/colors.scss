@@ -9,3 +9,52 @@ $neutral-0: #ffffff;
 $purple-600: #8f19e8;
 $purple-500: #a445ed;
 $red-500: #ff5252;
+
+$themes: (
+	light: (
+		background-color: $neutral-0,
+		text-color: $neutral-800,
+		theme-toggle-background: $neutral-500,
+		search-bar-background: $neutral-100,
+		line-color: $neutral-200,
+		shadow-color: rgba(#000, 0.1),
+	),
+	dark: (
+		background-color: $neutral-950,
+		text-color: $neutral-0,
+		theme-toggle-background: $purple-500,
+		search-bar-background: $neutral-900,
+		line-color: $neutral-700,
+		shadow-color: rgba(#a445ed, 0.5),
+	),
+);
+
+@mixin themed() {
+	@each $theme, $map in $themes {
+		.theme--#{$theme} & {
+			$theme-map: () !global;
+
+			@each $key, $value in $map {
+				$theme-map: map-merge(
+					$theme-map,
+					(
+						$key: $value,
+					)
+				) !global;
+			}
+			@content;
+			$theme-map: null !global;
+		}
+	}
+}
+
+@function t($key) {
+	@return map-get($theme-map, $key);
+}
+
+@mixin color-transition($duration: $transition-duration) {
+	transition:
+		background-color $duration ease-in-out,
+		color $duration ease-in-out,
+		border-color $duration ease-in-out;
+}

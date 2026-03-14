@@ -1,30 +1,20 @@
-import {useState, useEffect} from 'react';
-import {getWordData} from '../../utils/getWordData';
+import {useEffect} from 'react';
 import {useWordStore} from '../../stores/wordStore';
+import SearchIcon from '../../assets/icon-search.svg';
+import './SearchBar.scss';
 
 export default function SearchBar() {
-	const [search, setSearch] = useState<string>('');
-	const {setData, setNotFound} = useWordStore();
+	const {search, setSearch, searchWord} = useWordStore();
 
-	const afterSearch = (data: WordData | null) => {
-		if (data) {
-			setData(data);
-			setNotFound(false);
-		} else {
-			setData(null);
-			setNotFound(true);
-		}
-	};
-
-	const onSearch = () => getWordData(search).then(afterSearch);
+	const onSearch = () => searchWord(search);
 
 	useEffect(() => {
-		getWordData('keyboard').then(afterSearch);
+		onSearch();
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
 
 	return (
-		<section aria-label='Search'>
+		<section aria-label='Search' className='search-bar'>
 			<form role='search'>
 				<input
 					type='search'
@@ -32,9 +22,21 @@ export default function SearchBar() {
 					aria-label='Search word'
 					value={search}
 					onChange={(e) => setSearch(e.target.value)}
+					onSubmit={onSearch}
+					onKeyDown={(e) => {
+						if (e.key === 'Enter') {
+							e.preventDefault();
+							onSearch();
+						}
+					}}
 				/>
 				<button type='button' onClick={onSearch}>
-					Search
+					<img
+						src={SearchIcon}
+						alt='Search'
+						aria-hidden='true'
+						className='search-bar__icon'
+					/>
 				</button>
 			</form>
 		</section>
