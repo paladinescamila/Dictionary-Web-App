@@ -6,7 +6,7 @@ This is a solution to the [Dictionary web app challenge on Frontend Mentor](http
 
 ## Links
 
-- [Solution]()
+- [Solution](https://www.frontendmentor.io/solutions/dictionary-web-app-O9oxFCJPLq)
 - [Live Site](https://dictionary-paladinescamila.netlify.app)
 
 ## Built with
