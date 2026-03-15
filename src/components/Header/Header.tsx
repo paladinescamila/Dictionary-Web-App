@@ -31,7 +31,7 @@ export default function Header() {
 
 	return (
 		<header className='header'>
-			<nav className='header__nav'>
+			<div className='header__nav'>
 				<img className='header__logo' src={LogoIcon} alt='Logo Diccionario' />
 				<div className='header__settings'>
 					<div className='header__font-family'>
@@ -39,7 +39,9 @@ export default function Header() {
 							type='button'
 							className='header__font-family-label'
 							onClick={() => setFontSelectorIsVisible((prev) => !prev)}>
-							<p className='header__font-family-name'>{FONTS_NAMES[fontFamily]}</p>
+							<span className='header__font-family-name'>
+								{FONTS_NAMES[fontFamily]}
+							</span>
 							<img
 								className='header__font-family-arrow'
 								src={ArrowDownIcon}
@@ -74,7 +76,7 @@ export default function Header() {
 						<MoonIcon color={theme === 'dark' ? '#a445ed' : '#757575'} />
 					</label>
 				</div>
-			</nav>
+			</div>
 		</header>
 	);
 }

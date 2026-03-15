@@ -33,7 +33,6 @@ export default function SearchBar() {
 					aria-label='Search word'
 					value={search}
 					onChange={(e) => setSearch(e.target.value)}
-					onSubmit={onSearch}
 					onKeyDown={(e) => {
 						if (e.key === 'Enter') {
 							e.preventDefault();
@@ -41,7 +40,13 @@ export default function SearchBar() {
 						}
 					}}
 				/>
-				<button className='search-bar__submit' type='button' onClick={onSearch}>
+				<button
+					className='search-bar__submit'
+					type='button'
+					onClick={(e) => {
+						e.preventDefault();
+						onSearch();
+					}}>
 					<img
 						src={SearchIcon}
 						alt='Search'

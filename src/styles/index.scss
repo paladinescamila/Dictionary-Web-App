@@ -3,7 +3,7 @@
 @import './layout';
 
 * {
-	outline: none;
+	outline: 1px solid transparent;
 	padding: 0;
 	margin: 0;
 	box-sizing: border-box;
@@ -28,7 +28,7 @@ li {
 	list-style: none;
 }
 
-#root {
+.root {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -51,5 +51,12 @@ li {
 
 	@include on-mobile {
 		padding: 24px;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.element {
+		transition-property: none;
+		transition-duration: 0ms;
 	}
 }
