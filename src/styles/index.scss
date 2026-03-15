@@ -3,6 +3,7 @@
 @import './layout';
 
 * {
+	// outline: 1px solid red;
 	outline: none;
 	padding: 0;
 	margin: 0;
@@ -43,12 +44,12 @@ li {
 	width: $desktop-content-width;
 	padding: 58px 0;
 
-	@media (max-width: 850px) {
+	@include on-tablet {
 		width: 100%;
 		padding: 58px 40px;
 	}
 
-	@media (max-width: 600px) {
+	@include on-mobile {
 		padding: 24px;
 	}
 }

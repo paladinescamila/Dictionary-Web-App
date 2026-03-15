@@ -12,7 +12,7 @@
 	}
 
 	&__title {
-		@extend .text-preset-3-bold;
+		@include text-preset-3-bold;
 		margin: 48px 0 20px;
 		@include color-transition();
 
@@ -23,6 +23,6 @@
 
 	&__description {
 		color: $neutral-500;
-		@extend .text-preset-4-regular;
+		@include text-preset-4-regular;
 	}
 }

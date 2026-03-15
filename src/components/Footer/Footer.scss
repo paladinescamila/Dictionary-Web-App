@@ -4,12 +4,31 @@ footer {
 	display: flex;
 	flex-direction: row;
 	align-items: center;
+	flex-wrap: wrap;
+	column-gap: 10px;
+	row-gap: 8px;
 	padding-top: 21px;
 	padding-bottom: 58px;
-	@extend .text-preset-7-regular;
+	@include text-preset-7-regular;
 
 	@include themed() {
 		border-top: 1px solid t(line-color);
+	}
+
+	@include on-mobile {
+		padding-top: 32px;
+		padding-bottom: 32px;
+	}
+
+	div {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		column-gap: 20px;
+
+		@include on-mobile {
+			column-gap: 10px;
+		}
 	}
 
 	p {
@@ -19,7 +38,6 @@ footer {
 
 	a {
 		text-decoration: underline;
-		margin: 0 10px 0 20px;
 		@include color-transition();
 
 		@include themed() {

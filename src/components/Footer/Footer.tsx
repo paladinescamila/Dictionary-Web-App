@@ -10,13 +10,15 @@ export default function Footer() {
 	return (
 		<footer>
 			<p>Source</p>
-			<a
-				href={`https://en.wiktionary.org/wiki/${data.word}`}
-				target='_blank'
-				rel='noopener noreferrer'>
-				https://en.wiktionary.org/wiki/{data.word}
-			</a>
-			<img src={NewWindowIcon} alt='Open in new window' />
+			<div>
+				<a
+					href={`https://en.wiktionary.org/wiki/${data.word}`}
+					target='_blank'
+					rel='noopener noreferrer'>
+					https://en.wiktionary.org/wiki/{data.word}
+				</a>
+				<img src={NewWindowIcon} alt='Open in new window' />
+			</div>
 		</footer>
 	);
 }

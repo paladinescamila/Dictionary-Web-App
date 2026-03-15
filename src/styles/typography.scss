@@ -14,87 +14,87 @@ $font-mono: 'Inconsolata', monospace;
 	font-family: $font-mono;
 }
 
-.text-preset-1 {
+@mixin text-preset-1 {
 	font-weight: 700;
 	font-size: 64px;
 	line-height: 1.2;
 }
 
-.text-preset-1-mobile {
+@mixin text-preset-1-mobile {
 	font-weight: 700;
 	font-size: 32px;
 	line-height: 1.2;
 }
 
-.text-preset-2-bold-italic {
+@mixin text-preset-2-bold-italic {
 	font-weight: 700;
 	font-size: 24px;
 	line-height: 1.2;
 	font-style: italic;
 }
 
-.text-preset-2-regular {
+@mixin text-preset-2-regular {
 	font-weight: 400;
 	font-size: 24px;
 	line-height: 1.2;
 }
 
-.text-preset-3-bold {
+@mixin text-preset-3-bold {
 	font-weight: 700;
 	font-size: 20px;
 	line-height: 1.2;
 }
 
-.text-preset-3-regular {
+@mixin text-preset-3-regular {
 	font-weight: 400;
 	font-size: 20px;
 	line-height: 1.2;
 }
 
-.text-preset-4-bold {
+@mixin text-preset-4-bold {
 	font-weight: 700;
 	font-size: 18px;
 	line-height: 1.33;
 }
 
-.text-preset-4-regular {
+@mixin text-preset-4-regular {
 	font-weight: 400;
 	font-size: 18px;
 	line-height: 1.33;
 }
 
-.text-preset-4-mobile-bold-italic {
+@mixin text-preset-4-mobile-bold-italic {
 	font-weight: 700;
 	font-size: 18px;
 	line-height: 1.22;
 	font-style: italic;
 }
 
-.text-preset-5-mobile-bold {
+@mixin text-preset-5-mobile-bold {
 	font-weight: 700;
 	font-size: 16px;
 	line-height: 1.2;
 }
 
-.text-preset-5-mobile-regular {
+@mixin text-preset-5-mobile-regular {
 	font-weight: 400;
 	font-size: 16px;
 	line-height: 1.2;
 }
 
-.text-preset-6-mobile {
+@mixin text-preset-6-mobile {
 	font-weight: 400;
 	font-size: 15px;
 	line-height: 1.6;
 }
 
-.text-preset-7-bold {
+@mixin text-preset-7-bold {
 	font-weight: 700;
 	font-size: 14px;
 	line-height: 1.7;
 }
 
-.text-preset-7-regular {
+@mixin text-preset-7-regular {
 	font-weight: 400;
 	font-size: 14px;
 	line-height: 1.2;

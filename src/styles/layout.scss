@@ -1,2 +1,17 @@
 $desktop-content-width: 736px;
 $transition-duration: 0.3s;
+
+$desktop-breakpoint: 850px;
+$tablet-breakpoint: 600px;
+
+@mixin on-tablet {
+	@media (max-width: $desktop-breakpoint) {
+		@content;
+	}
+}
+
+@mixin on-mobile {
+	@media (max-width: $tablet-breakpoint) {
+		@content;
+	}
+}

@@ -6,10 +6,18 @@
 	row-gap: 40px;
 	margin-bottom: 48px;
 
+	@include on-mobile {
+		margin-bottom: 32px;
+	}
+
 	.meaning {
 		display: flex;
 		flex-direction: column;
 		row-gap: 40px;
+
+		@include on-mobile {
+			row-gap: 32px;
+		}
 
 		&__part-of-speech {
 			display: flex;
@@ -18,11 +26,15 @@
 			align-items: center;
 
 			span {
-				@extend .text-preset-2-bold-italic;
+				@include text-preset-2-bold-italic;
 				@include color-transition();
 
 				@include themed() {
 					color: t(text-color);
+				}
+
+				@include on-mobile {
+					@include text-preset-4-mobile-bold-italic;
 				}
 			}
 
@@ -45,7 +57,11 @@
 
 		&__title {
 			color: $neutral-500;
-			@extend .text-preset-3-regular;
+			@include text-preset-3-regular;
+
+			@include on-mobile {
+				@include text-preset-5-mobile-regular;
+			}
 		}
 
 		&__list {
@@ -54,7 +70,7 @@
 			row-gap: 12px;
 
 			li {
-				@extend .text-preset-4-regular;
+				@include text-preset-4-regular;
 				padding-left: 48px;
 				position: relative;
 				@include color-transition();
@@ -64,6 +80,10 @@
 
 				@include themed() {
 					color: t(text-color);
+				}
+
+				@include on-mobile {
+					@include text-preset-6-mobile;
 				}
 
 				&:before {
@@ -81,21 +101,34 @@
 
 		&__sample {
 			color: $neutral-500;
-			@extend .text-preset-4-regular;
+			@include text-preset-4-regular;
+
+			@include on-mobile {
+				@include text-preset-6-mobile;
+			}
 		}
 
 		&__synonyms {
 			color: $neutral-500;
-			@extend .text-preset-3-regular;
+			@include text-preset-3-regular;
 			padding-top: 24px;
 			display: flex;
 			flex-direction: row;
 			column-gap: 24px;
 
+			@include on-mobile {
+				@include text-preset-6-mobile;
+				padding-top: 0;
+			}
+
 			a {
 				color: $purple-500;
-				@extend .text-preset-3-bold;
+				@include text-preset-3-bold;
 				text-decoration: none;
+
+				@include on-mobile {
+					@include text-preset-5-mobile-bold;
+				}
 
 				&:hover {
 					text-decoration: underline;

@@ -8,23 +8,35 @@
 	column-gap: 8px;
 	margin-bottom: 40px;
 
+	@include on-mobile {
+		margin-bottom: 28px;
+	}
+
 	div {
 		display: flex;
 		flex-direction: column;
 		row-gap: 8px;
 
 		h1 {
-			@extend .text-preset-1;
+			@include text-preset-1;
 			@include color-transition();
 
 			@include themed() {
 				color: t(text-color);
 			}
+
+			@include on-mobile {
+				@include text-preset-1-mobile;
+			}
 		}
 
 		p {
 			color: $purple-500;
-			@extend .text-preset-2-regular;
+			@include text-preset-2-regular;
+
+			@include on-mobile {
+				@include text-preset-4-regular;
+			}
 		}
 	}
 
@@ -37,6 +49,11 @@
 		background-color: rgba($purple-500, 0.25);
 		border-radius: 50%;
 		@include color-transition();
+
+		@include on-mobile {
+			width: 48px;
+			height: 48px;
+		}
 
 		&:hover {
 			background-color: $purple-500;
@@ -53,6 +70,11 @@
 			clip-path: polygon(0% 0%, 100% 50%, 0% 100%);
 			margin-left: 4px;
 			@include color-transition();
+
+			@include on-mobile {
+				width: 13px;
+				height: 13px;
+			}
 		}
 	}
 }
