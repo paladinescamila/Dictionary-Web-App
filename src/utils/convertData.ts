@@ -1,3 +1,8 @@
+/**
+ * Converts the API response data into a format suitable for the application.
+ * @param data - The raw response data from the API.
+ * @returns A structured WordData object containing the word, phonetic, audio, and meanings.
+ */
 export const convertData = (data: Response): WordData => ({
 	word: data.word,
 	phonethic: data.phonetic,

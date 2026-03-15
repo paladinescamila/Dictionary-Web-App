@@ -1,4 +1,5 @@
 import {useWordStore} from '../../stores/wordStore';
+import {toggleAudio} from '../../utils/ui';
 import './Phonetic.scss';
 
 export default function Phonetic() {
@@ -6,10 +7,7 @@ export default function Phonetic() {
 
 	if (!data) return null;
 
-	const playAudio = () => {
-		const audio = new Audio(data.audio);
-		audio.play();
-	};
+	const playAudio = () => toggleAudio(data.audio);
 
 	return (
 		<header className='phonetic'>

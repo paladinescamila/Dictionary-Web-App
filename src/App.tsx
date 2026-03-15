@@ -1,5 +1,4 @@
-import {useEffect} from 'react';
-import {useUIStore} from './stores/uiStore';
+import {initializeUI} from './utils/ui';
 import {useWordStore} from './stores/wordStore';
 
 import Header from './components/Header/Header';
@@ -9,19 +8,10 @@ import Meanings from './components/Meanings/Meanings';
 import Footer from './components/Footer/Footer';
 import NotFound from './components/NotFound/NotFound';
 
-function App() {
-	const {setFontFamily, setTheme} = useUIStore();
-	const {notFound} = useWordStore();
+initializeUI();
 
-	useEffect(() => {
-		setFontFamily('sans');
-		setTheme(
-			window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
-				? 'dark'
-				: 'light',
-		);
-		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, []);
+function App() {
+	const {notFound} = useWordStore();
 
 	return (
 		<div className='app'>
