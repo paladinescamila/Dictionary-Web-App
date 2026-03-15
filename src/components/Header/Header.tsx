@@ -44,9 +44,9 @@ export default function Header() {
 						onChange={(e) => setTheme(e.target.checked ? 'dark' : 'light')}
 					/>
 					<label htmlFor='dark-mode-toggle' className='dark-mode-toggle'>
-						<div className={`toggle-switch--${theme}`}>
-							<div className='toggle-knob'></div>
-						</div>
+						<span className={`toggle-switch--${theme}`}>
+							<span className='toggle-knob'></span>
+						</span>
 						<MoonIcon color={theme === 'dark' ? '#a445ed' : '#757575'} />
 					</label>
 				</div>

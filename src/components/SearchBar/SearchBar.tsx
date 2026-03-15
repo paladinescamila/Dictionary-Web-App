@@ -47,6 +47,7 @@ export default function SearchBar() {
 						aria-hidden='true'
 						className='search-bar__icon'
 					/>
+					<span className='sr-only'>Search</span>
 				</button>
 			</form>
 

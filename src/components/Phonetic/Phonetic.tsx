@@ -15,7 +15,7 @@ export default function Phonetic() {
 				<h1>{data.word}</h1>
 				<p>{data.phonethic}</p>
 			</div>
-			<button aria-label='Reproducir pronunciación' onClick={playAudio} className='play'>
+			<button aria-label='Play audio' type='button' onClick={playAudio} className='play'>
 				<div />
 			</button>
 		</header>
