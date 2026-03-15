@@ -1,4 +1,5 @@
 import {create} from 'zustand';
+import {DEFAULT_FONT_FAMILY, DEFAULT_THEME} from '../constants/Defaults';
 
 interface UIStore {
 	fontFamily: FontFamily;
@@ -8,13 +9,13 @@ interface UIStore {
 }
 
 const useStore = create<UIStore>((set) => ({
-	fontFamily: 'sans',
+	fontFamily: DEFAULT_FONT_FAMILY,
 	setFontFamily: (fontFamily: FontFamily) => {
 		set({fontFamily});
 		document.body.classList.remove('font-sans', 'font-serif', 'font-mono');
 		document.body.classList.add(`font-${fontFamily}`);
 	},
-	theme: 'light',
+	theme: DEFAULT_THEME,
 	setTheme: (theme: Theme) => {
 		set({theme});
 		document.body.classList.remove('theme--light');

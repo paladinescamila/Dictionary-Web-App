@@ -1,3 +1,5 @@
+import {DEFAULT_FONT_FAMILY, DEFAULT_THEME} from '../constants/Defaults';
+
 /**
  * Apply the given font family to the document body by updating the class list.
  * @param fontFamily - The font family to apply (e.g., 'sans', 'serif', 'mono').
@@ -20,8 +22,8 @@ export const applyTheme = (theme: Theme) => {
  * Initialize the UI by applying the default font family and theme based on user preferences or system settings.
  */
 export const initializeUI = () => {
-	applyFontFamily('sans');
-	applyTheme('light');
+	applyFontFamily(DEFAULT_FONT_FAMILY);
+	applyTheme(DEFAULT_THEME);
 };
 
 /**
