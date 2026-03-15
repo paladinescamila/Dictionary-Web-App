@@ -1,4 +1,4 @@
-import {useState} from 'react';
+import {useEffect, useState} from 'react';
 import LogoIcon from '../../assets/logo.svg';
 import {useUIStore} from '../../stores/uiStore';
 import {FONTS, FONTS_NAMES} from '../../constants/Fonts';
@@ -8,8 +8,26 @@ import './Header.scss';
 
 export default function Header() {
 	const {fontFamily, setFontFamily, theme, setTheme} = useUIStore();
-
 	const [fontSelectorIsVisible, setFontSelectorIsVisible] = useState<boolean>(false);
+
+	const onSelectFontFamily = (font: FontFamily) => {
+		setFontFamily(font);
+		setFontSelectorIsVisible(false);
+	};
+
+	useEffect(() => {
+		const handleClickOutside = (event: MouseEvent) => {
+			const target = event.target as HTMLElement;
+
+			if (!target.closest('.font-family')) setFontSelectorIsVisible(false);
+		};
+
+		document.addEventListener('click', handleClickOutside);
+
+		return () => {
+			document.removeEventListener('click', handleClickOutside);
+		};
+	}, []);
 
 	return (
 		<header className='header'>
@@ -29,7 +47,7 @@ export default function Header() {
 									<div
 										key={font}
 										className={`font-family-option--${font}`}
-										onClick={() => setFontFamily(font)}>
+										onClick={() => onSelectFontFamily(font)}>
 										{FONTS_NAMES[font]}
 									</div>
 								))}
