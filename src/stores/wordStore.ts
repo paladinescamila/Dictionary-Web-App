@@ -10,6 +10,9 @@ interface WordStore {
 	notFound: boolean;
 
 	searchWord: (customSearch: string) => void;
+
+	searchIsEmpty: boolean;
+	setSearchIsEmpty: (isEmpty: boolean) => void;
 }
 
 const useStore = create<WordStore>((set, get) => ({
@@ -32,6 +35,11 @@ const useStore = create<WordStore>((set, get) => ({
 			else set({data: null, notFound: true, loading: false});
 		});
 	},
+
+	searchIsEmpty: false,
+
+	setSearchIsEmpty: (isEmpty) =>
+		set({searchIsEmpty: isEmpty, data: null, notFound: false, loading: false}),
 }));
 
 export const useWordStore = () => useStore((state) => state);

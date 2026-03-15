@@ -7,7 +7,7 @@
 		margin-bottom: 25px;
 	}
 
-	form {
+	&__form {
 		display: flex;
 		flex-direction: row;
 		align-items: center;
@@ -26,6 +26,14 @@
 			border-color: $purple-500;
 		}
 
+		&--error {
+			border-color: $red-500;
+
+			&:focus-within {
+				border-color: $red-500;
+			}
+		}
+
 		input {
 			flex: 1;
 			@include text-preset-3-bold;
@@ -37,6 +45,10 @@
 
 			@include on-mobile {
 				@include text-preset-5-mobile-bold;
+			}
+
+			&::placeholder {
+				opacity: 0.25;
 			}
 		}
 
@@ -51,5 +63,15 @@
 	&__icon {
 		width: 15.55px;
 		height: 15.55px;
+	}
+
+	&__error {
+		margin-top: 8px;
+		@include text-preset-3-regular;
+		color: $red-500;
+
+		@include on-mobile {
+			@include text-preset-5-mobile-regular;
+		}
 	}
 }

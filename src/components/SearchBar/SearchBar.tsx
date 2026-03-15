@@ -4,9 +4,17 @@ import SearchIcon from '../../assets/icon-search.svg';
 import './SearchBar.scss';
 
 export default function SearchBar() {
-	const {search, setSearch, searchWord} = useWordStore();
+	const {search, setSearch, searchWord, searchIsEmpty, setSearchIsEmpty} = useWordStore();
 
-	const onSearch = () => searchWord(search);
+	const onSearch = () => {
+		if (search.trim() === '') {
+			setSearchIsEmpty(true);
+			return;
+		}
+
+		setSearchIsEmpty(false);
+		searchWord(search);
+	};
 
 	useEffect(() => {
 		onSearch();
@@ -15,10 +23,12 @@ export default function SearchBar() {
 
 	return (
 		<section aria-label='Search' className='search-bar'>
-			<form role='search'>
+			<form
+				role='search'
+				className={`search-bar__form ${searchIsEmpty ? 'search-bar__form--error' : ''}`}>
 				<input
 					type='search'
-					placeholder='keyboard'
+					placeholder='Search for any word…'
 					aria-label='Search word'
 					value={search}
 					onChange={(e) => setSearch(e.target.value)}
@@ -39,6 +49,12 @@ export default function SearchBar() {
 					/>
 				</button>
 			</form>
+
+			{searchIsEmpty && (
+				<p className='search-bar__error' role='alert'>
+					Whoops, can’t be empty…
+				</p>
+			)}
 		</section>
 	);
 }
