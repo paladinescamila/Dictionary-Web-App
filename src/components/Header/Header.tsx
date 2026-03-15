@@ -48,7 +48,7 @@ export default function Header() {
 								alt='Arrow Down Icon'
 							/>
 						</button>
-						{fontSelectorIsVisible ? (
+						{fontSelectorIsVisible && (
 							<div className='header__font-family-options'>
 								{FONTS.map((font) => (
 									<div
@@ -59,7 +59,7 @@ export default function Header() {
 									</div>
 								))}
 							</div>
-						) : null}
+						)}
 					</div>
 					<div className='header__divider'></div>
 					<input
