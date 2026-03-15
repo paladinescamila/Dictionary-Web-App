@@ -17,12 +17,12 @@ export default function Header() {
 				<img src={LogoIcon} alt='Logo Diccionario' />
 				<div className='settings'>
 					<div className='font-family'>
-						<div
+						<button
 							className='font-family-label'
 							onClick={() => setFontSelectorIsVisible((prev) => !prev)}>
 							<p>{FONTS_NAMES[fontFamily]}</p>
 							<img src={ArrowDownIcon} alt='Arrow Down Icon' />
-						</div>
+						</button>
 						{fontSelectorIsVisible ? (
 							<div className='font-family-options'>
 								{FONTS.map((font) => (

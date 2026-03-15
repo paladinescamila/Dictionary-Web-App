@@ -1,8 +1,7 @@
 @import '../../styles';
 
 .header {
-	margin-bottom: 54px;
-	padding-top: 2px;
+	margin-bottom: 56px;
 
 	@include on-mobile {
 		margin-bottom: 24px;
