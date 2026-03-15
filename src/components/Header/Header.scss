@@ -1,64 +1,67 @@
 @import '../../styles';
 
 .header {
+	$self: &;
 	margin-bottom: 56px;
 
 	@include on-mobile {
 		margin-bottom: 24px;
 	}
 
-	nav {
+	&__nav {
 		display: flex;
 		flex-direction: row;
 		align-items: center;
 		justify-content: space-between;
 	}
 
-	.settings {
+	&__settings {
 		display: flex;
 		flex-direction: row;
 		align-items: center;
 		column-gap: 24px;
 
-		.font-family {
+		#{$self}__font-family {
 			position: relative;
-		}
 
-		.font-family-label {
-			display: flex;
-			flex-direction: row;
-			align-items: center;
-			column-gap: 16px;
-			@include text-preset-4-bold;
-			@include color-transition();
-			cursor: pointer;
+			&-label {
+				display: flex;
+				flex-direction: row;
+				align-items: center;
+				column-gap: 16px;
+				@include text-preset-4-bold;
+				@include color-transition();
+				cursor: pointer;
 
-			@include themed() {
-				color: t(text-color);
+				@include themed() {
+					color: t(text-color);
+				}
+
+				@include on-mobile {
+					@include text-preset-7-bold;
+				}
 			}
 
-			@include on-mobile {
-				@include text-preset-7-bold;
-			}
-		}
+			&-options {
+				display: flex;
+				flex-direction: column;
+				row-gap: 16px;
+				position: absolute;
+				top: 150%;
+				right: 10px;
+				padding: 24px;
+				border-radius: 16px;
+				min-width: 183px;
 
-		.font-family-options {
-			display: flex;
-			flex-direction: column;
-			row-gap: 16px;
-			position: absolute;
-			top: 150%;
-			right: 10px;
-			padding: 24px;
-			border-radius: 16px;
-			min-width: 183px;
-
-			@include themed() {
-				background-color: t(background-color);
-				box-shadow: 0 5px 30px t(shadow-color);
+				@include themed() {
+					background-color: t(background-color);
+					box-shadow: 0 5px 30px t(shadow-color);
+				}
 			}
 
-			.font-family-option {
+			&-option--sans,
+			&-option--serif,
+			&-option--mono {
 				cursor: pointer;
 				@include text-preset-4-bold;
 				@include color-transition();
@@ -74,23 +77,20 @@
 				}
 			}
 
-			.font-family-option--sans {
-				@extend .font-family-option;
+			&-option--sans {
 				@extend .font-sans;
 			}
 
-			.font-family-option--serif {
-				@extend .font-family-option;
+			&-option--serif {
 				@extend .font-serif;
 			}
 
-			.font-family-option--mono {
-				@extend .font-family-option;
+			&-option--mono {
 				@extend .font-mono;
 			}
 		}
 
-		.divider {
+		#{$self}__divider {
 			width: 1px;
 			height: 32px;
 			@include color-transition();
@@ -101,17 +101,17 @@
 		}
 	}
 
-	input#dark-mode-toggle,
-	select#font-family {
+	&__dark-mode-input {
 		display: none;
 	}
 
-	.dark-mode-toggle {
+	&__dark-mode-toggle {
 		display: flex;
 		flex-direction: row;
 		column-gap: 20px;
 
-		.toggle-switch {
+		#{$self}__toggle-switch--light,
+		#{$self}__toggle-switch--dark {
 			width: 40px;
 			height: 20px;
 			border-radius: 50px;
@@ -123,7 +123,8 @@
 				background-color: t(theme-toggle-background);
 			}
 
-			.toggle-knob {
+			#{$self}__toggle-knob {
+				cursor: pointer;
 				width: 14px;
 				height: 14px;
 				border-radius: 50%;
@@ -135,18 +136,14 @@
 			}
 		}
 
-		.toggle-switch--light {
-			@extend .toggle-switch;
-
-			.toggle-knob {
+		#{$self}__toggle-switch--light {
+			#{$self}__toggle-knob {
 				transform: translateX(0);
 			}
 		}
 
-		.toggle-switch--dark {
-			@extend .toggle-switch;
-
-			.toggle-knob {
+		#{$self}__toggle-switch--dark {
+			#{$self}__toggle-knob {
 				transform: translateX(20px);
 			}
 		}

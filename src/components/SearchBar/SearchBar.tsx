@@ -27,6 +27,7 @@ export default function SearchBar() {
 				role='search'
 				className={`search-bar__form ${searchIsEmpty ? 'search-bar__form--error' : ''}`}>
 				<input
+					className='search-bar__input'
 					type='search'
 					placeholder='Search for any word…'
 					aria-label='Search word'
@@ -40,7 +41,7 @@ export default function SearchBar() {
 						}
 					}}
 				/>
-				<button type='button' onClick={onSearch}>
+				<button className='search-bar__submit' type='button' onClick={onSearch}>
 					<img
 						src={SearchIcon}
 						alt='Search'

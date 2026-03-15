@@ -34,7 +34,7 @@
 			}
 		}
 
-		input {
+		.search-bar__input {
 			flex: 1;
 			@include text-preset-3-bold;
 			@include color-transition();
@@ -49,13 +49,6 @@
 
 			&::placeholder {
 				opacity: 0.25;
-			}
-		}
-
-		button {
-			img {
-				width: 15.55px;
-				height: 15.55px;
 			}
 		}
 	}

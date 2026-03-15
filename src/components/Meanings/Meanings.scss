@@ -24,28 +24,28 @@
 			flex-direction: row;
 			column-gap: 20px;
 			align-items: center;
+		}
 
-			span {
-				@include text-preset-2-bold-italic;
-				@include color-transition();
+		&__part-of-speech-text {
+			@include text-preset-2-bold-italic;
+			@include color-transition();
 
-				@include themed() {
-					color: t(text-color);
-				}
-
-				@include on-mobile {
-					@include text-preset-4-mobile-bold-italic;
-				}
+			@include themed() {
+				color: t(text-color);
 			}
 
-			div {
-				flex: 1;
-				height: 1px;
-				@include color-transition();
+			@include on-mobile {
+				@include text-preset-4-mobile-bold-italic;
+			}
+		}
 
-				@include themed() {
-					background-color: t(line-color);
-				}
+		&__part-of-speech-line {
+			flex: 1;
+			height: 1px;
+			@include color-transition();
+
+			@include themed() {
+				background-color: t(line-color);
 			}
 		}
 
@@ -68,34 +68,34 @@
 			display: flex;
 			flex-direction: column;
 			row-gap: 12px;
+		}
 
-			li {
-				@include text-preset-4-regular;
-				padding-left: 48px;
-				position: relative;
-				@include color-transition();
-				display: flex;
-				flex-direction: column;
-				row-gap: 12px;
+		&__list-item {
+			@include text-preset-4-regular;
+			padding-left: 48px;
+			position: relative;
+			@include color-transition();
+			display: flex;
+			flex-direction: column;
+			row-gap: 12px;
 
-				@include themed() {
-					color: t(text-color);
-				}
+			@include themed() {
+				color: t(text-color);
+			}
 
-				@include on-mobile {
-					@include text-preset-6-mobile;
-				}
+			@include on-mobile {
+				@include text-preset-6-mobile;
+			}
 
-				&:before {
-					content: '';
-					position: absolute;
-					top: 8px;
-					left: 22px;
-					width: 5px;
-					height: 5px;
-					background-color: $purple-600;
-					border-radius: 50%;
-				}
+			&:before {
+				content: '';
+				position: absolute;
+				top: 8px;
+				left: 22px;
+				width: 5px;
+				height: 5px;
+				background-color: $purple-600;
+				border-radius: 50%;
 			}
 		}
 
@@ -121,19 +121,19 @@
 				@include text-preset-6-mobile;
 				padding-top: 0;
 			}
+		}
 
-			a {
-				color: $purple-500;
-				@include text-preset-3-bold;
-				text-decoration: none;
+		&__synonym-link {
+			color: $purple-500;
+			@include text-preset-3-bold;
+			text-decoration: none;
 
-				@include on-mobile {
-					@include text-preset-5-mobile-bold;
-				}
+			@include on-mobile {
+				@include text-preset-5-mobile-bold;
+			}
 
-				&:hover {
-					text-decoration: underline;
-				}
+			&:hover {
+				text-decoration: underline;
 			}
 		}
 	}

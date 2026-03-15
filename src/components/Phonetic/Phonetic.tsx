@@ -11,12 +11,16 @@ export default function Phonetic() {
 
 	return (
 		<header className='phonetic'>
-			<div>
-				<h1>{data.word}</h1>
-				<p>{data.phonethic}</p>
+			<div className='phonetic__content'>
+				<h1 className='phonetic__word'>{data.word}</h1>
+				<p className='phonetic__transcription'>{data.phonethic}</p>
 			</div>
-			<button aria-label='Play audio' type='button' onClick={playAudio} className='play'>
-				<div />
+			<button
+				aria-label='Play audio'
+				type='button'
+				onClick={playAudio}
+				className='phonetic__play'>
+				<div className='phonetic__play-icon' />
 			</button>
 		</header>
 	);

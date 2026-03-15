@@ -13,8 +13,8 @@
 
 	&__title {
 		@include text-preset-3-bold;
-		margin: 48px 0 20px;
 		@include color-transition();
+		margin: 48px 0 20px;
 
 		@include themed() {
 			color: t(text-color);

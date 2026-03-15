@@ -19,7 +19,7 @@ export default function Header() {
 		const handleClickOutside = (event: MouseEvent) => {
 			const target = event.target as HTMLElement;
 
-			if (!target.closest('.font-family')) setFontSelectorIsVisible(false);
+			if (!target.closest('.header__font-family')) setFontSelectorIsVisible(false);
 		};
 
 		document.addEventListener('click', handleClickOutside);
@@ -31,22 +31,27 @@ export default function Header() {
 
 	return (
 		<header className='header'>
-			<nav>
-				<img src={LogoIcon} alt='Logo Diccionario' />
-				<div className='settings'>
-					<div className='font-family'>
+			<nav className='header__nav'>
+				<img className='header__logo' src={LogoIcon} alt='Logo Diccionario' />
+				<div className='header__settings'>
+					<div className='header__font-family'>
 						<button
-							className='font-family-label'
+							type='button'
+							className='header__font-family-label'
 							onClick={() => setFontSelectorIsVisible((prev) => !prev)}>
-							<p>{FONTS_NAMES[fontFamily]}</p>
-							<img src={ArrowDownIcon} alt='Arrow Down Icon' />
+							<p className='header__font-family-name'>{FONTS_NAMES[fontFamily]}</p>
+							<img
+								className='header__font-family-arrow'
+								src={ArrowDownIcon}
+								alt='Arrow Down Icon'
+							/>
 						</button>
 						{fontSelectorIsVisible ? (
-							<div className='font-family-options'>
+							<div className='header__font-family-options'>
 								{FONTS.map((font) => (
 									<div
 										key={font}
-										className={`font-family-option--${font}`}
+										className={`header__font-family-option--${font}`}
 										onClick={() => onSelectFontFamily(font)}>
 										{FONTS_NAMES[font]}
 									</div>
@@ -54,16 +59,17 @@ export default function Header() {
 							</div>
 						) : null}
 					</div>
-					<div className='divider'></div>
+					<div className='header__divider'></div>
 					<input
+						className='header__dark-mode-input'
 						type='checkbox'
 						id='dark-mode-toggle'
 						checked={theme === 'dark'}
 						onChange={(e) => setTheme(e.target.checked ? 'dark' : 'light')}
 					/>
-					<label htmlFor='dark-mode-toggle' className='dark-mode-toggle'>
-						<span className={`toggle-switch--${theme}`}>
-							<span className='toggle-knob'></span>
+					<label htmlFor='dark-mode-toggle' className='header__dark-mode-toggle'>
+						<span className={`header__toggle-switch--${theme}`}>
+							<span className='header__toggle-knob'></span>
 						</span>
 						<MoonIcon color={theme === 'dark' ? '#a445ed' : '#757575'} />
 					</label>

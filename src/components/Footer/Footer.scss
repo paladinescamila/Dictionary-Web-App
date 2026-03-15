@@ -1,6 +1,6 @@
 @import '../../styles';
 
-footer {
+.footer {
 	display: flex;
 	flex-direction: row;
 	align-items: center;
@@ -21,19 +21,19 @@ footer {
 		column-gap: 10px;
 	}
 
-	div {
+	&__source {
 		display: flex;
 		flex-direction: row;
 		align-items: center;
 		column-gap: 10px;
 	}
 
-	p {
+	&__label {
 		color: $neutral-500;
 		text-decoration: underline;
 	}
 
-	a {
+	&__link {
 		text-decoration: underline;
 		@include color-transition();
 

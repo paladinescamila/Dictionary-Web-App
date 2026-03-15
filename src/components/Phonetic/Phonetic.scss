@@ -12,35 +12,35 @@
 		margin-bottom: 28px;
 	}
 
-	div {
+	&__content {
 		display: flex;
 		flex-direction: column;
 		row-gap: 8px;
+	}
 
-		h1 {
-			@include text-preset-1;
-			@include color-transition();
+	&__word {
+		@include text-preset-1;
+		@include color-transition();
 
-			@include themed() {
-				color: t(text-color);
-			}
-
-			@include on-mobile {
-				@include text-preset-1-mobile;
-			}
+		@include themed() {
+			color: t(text-color);
 		}
 
-		p {
-			color: $purple-500;
-			@include text-preset-2-regular;
-
-			@include on-mobile {
-				@include text-preset-4-regular;
-			}
+		@include on-mobile {
+			@include text-preset-1-mobile;
 		}
 	}
 
-	.play {
+	&__transcription {
+		color: $purple-500;
+		@include text-preset-2-regular;
+
+		@include on-mobile {
+			@include text-preset-4-regular;
+		}
+	}
+
+	&__play {
 		width: 75px;
 		height: 75px;
 		display: flex;
@@ -58,23 +58,23 @@
 		&:hover {
 			background-color: $purple-500;
 
-			div {
+			.phonetic__play-icon {
 				background-color: $neutral-0;
 			}
 		}
+	}
 
-		div {
-			width: 21px;
-			height: 21px;
-			background-color: $purple-500;
-			clip-path: polygon(0% 0%, 100% 50%, 0% 100%);
-			margin-left: 4px;
-			@include color-transition();
+	&__play-icon {
+		width: 21px;
+		height: 21px;
+		background-color: $purple-500;
+		clip-path: polygon(0% 0%, 100% 50%, 0% 100%);
+		margin-left: 4px;
+		@include color-transition();
 
-			@include on-mobile {
-				width: 13px;
-				height: 13px;
-			}
+		@include on-mobile {
+			width: 13px;
+			height: 13px;
 		}
 	}
 }
